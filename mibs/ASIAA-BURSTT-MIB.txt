@@ -1,0 +1,406 @@
+ASIAA-BURSTT-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Example MIB objects for agent module example implementations
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, INTEGER,
+    NOTIFICATION-TYPE, Counter64,
+    enterprises                             FROM SNMPv2-SMI
+    SnmpAdminString                         FROM SNMP-FRAMEWORK-MIB
+    DisplayString, RowStatus, StorageType,
+    TEXTUAL-CONVENTION                      FROM SNMPv2-TC
+    InetAddressType, InetAddress            FROM INET-ADDRESS-MIB
+    Float                                   FROM NET-SNMP-TC
+;
+
+bursttSys MODULE-IDENTITY
+    LAST-UPDATED "202305290100Z"
+    ORGANIZATION "www.asiaa.sinica.edu.tw"
+    CONTACT-INFO
+     "postal:   Wes Hardaker
+                    P.O. Box 382
+                    Davis CA  95617
+
+          email:    hctseng@asiaa.sinica.edu.tw"
+    DESCRIPTION
+    "Example MIB objects for agent module example implementations"
+    REVISION     "202305290100Z"
+    DESCRIPTION
+    "Corrected notification example definitions"
+    REVISION     "202305290100Z"
+    DESCRIPTION
+    "First draft"
+    ::= { enterprises 33652200.10 }
+
+--
+-- top level structure
+--
+bursttSysInfo        OBJECT IDENTIFIER ::= { bursttSys 1 }
+bursttSysMemory      OBJECT IDENTIFIER ::= { bursttSys 2 }
+bursttSysNIC         OBJECT IDENTIFIER ::= { bursttSys 3 }
+bursttSysStatus      OBJECT IDENTIFIER ::= { bursttSys 4 }
+bursttSysPage        OBJECT IDENTIFIER ::= { bursttSys 5 }
+bursttSysCPU         OBJECT IDENTIFIER ::= { bursttSys 6 }
+bursttSysBlock       OBJECT IDENTIFIER ::= { bursttSys 7 }
+bursttSysDataRate    OBJECT IDENTIFIER ::= { bursttSys 8 }
+bursttSysErrorCode   OBJECT IDENTIFIER ::= { bursttSys 9 }
+
+--
+-- bursttSysInfo
+--
+
+bursttSys-Hostname OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "This is a simple object which merely houses a writable
+     agent/mibgroup/examples/scalar_int.c file."
+    DEFVAL { disable }
+    ::= { bursttSysInfo 1 }
+
+bursttSys-Time OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "This is a simple object which is a basic integer.  It's value
+     agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysInfo 2 }
+
+--
+-- bursttSysMemory
+--
+
+bursttSys-MemoryUsed OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysMemory 1 }
+
+bursttSys-MemoryTotal OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysMemory 2 }
+
+--
+-- bursttSysNIC
+--
+
+bursttSys-NIC0 OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { "" }
+    ::= { bursttSysNIC 1 }
+
+bursttSys-NIC1 OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { "" }
+    ::= { bursttSysNIC 2 }
+
+bursttSys-NIC2 OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { "" }
+    ::= { bursttSysNIC 3 }
+
+bursttSys-NIC3 OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { "" }
+    ::= { bursttSysNIC 4 }
+
+--
+-- bursttSysStatus
+--
+
+bursttSys-Status0 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysStatus 1 }
+
+bursttSys-Status1 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysStatus 2 }
+
+bursttSys-Status2 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysStatus 3 }
+
+bursttSys-Status3 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysStatus 4 }
+
+--
+-- bursttSysPage
+--
+
+bursttSys-Page0 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysPage 1 }
+
+bursttSys-Page1 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysPage 2 }
+
+bursttSys-Page2 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysPage 3 }
+
+bursttSys-Page3 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysPage 4 }
+
+--
+-- bursttSysCPU
+--
+
+bursttSys-CPU0 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysCPU 1 }
+
+bursttSys-CPU1 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysCPU 2 }
+
+bursttSys-CPU2 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysCPU 3 }
+
+bursttSys-CPU3 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysCPU 4 }
+
+--
+-- bursttSysBlock
+--
+
+bursttSys-Block0 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysBlock 1 }
+
+bursttSys-Block1 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysBlock 2 }
+
+bursttSys-Block2 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysBlock 3 }
+
+bursttSys-Block3 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysBlock 4 }
+
+--
+-- bursttSysDataRate
+--
+
+bursttSys-DataRate0 OBJECT-TYPE
+    SYNTAX      Float
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysDataRate 1 }
+
+bursttSys-DataRate1 OBJECT-TYPE
+    SYNTAX      Float
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysDataRate 2 }
+
+bursttSys-DataRate2 OBJECT-TYPE
+    SYNTAX      Float
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysDataRate 3 }
+
+bursttSys-DataRate3 OBJECT-TYPE
+    SYNTAX      Float
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysDataRate 4 }
+
+--
+-- bursttSysErrorCode
+--
+
+bursttSys-ErrorCode0 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysErrorCode 1 }
+
+bursttSys-ErrorCode1 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysErrorCode 2 }
+
+bursttSys-ErrorCode2 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysErrorCode 3 }
+
+bursttSys-ErrorCode3 OBJECT-TYPE
+    SYNTAX      INTEGER
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+        "This is a simple object which is a basic integer.  It's value
+         agent/mibgroup/examples/delayed_instance.c file."
+    DEFVAL { disable }
+    ::= { bursttSysErrorCode 4 }
+
+END
