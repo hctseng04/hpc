@@ -2,6 +2,7 @@
 
 MYHOST=`hostname -s`
 IFS=',' declare -a 'CUDA_VISIBLE_DEVICES_CPU=($CUDA_VISIBLE_DEVICES)'
+IFS=',' declare -a 'CUDA_VISIBLE_DEVICES_GPUID=($CUDA_VISIBLE_DEVICES)'
 
 # kawas17
 KAWAS17_ARRY_GPU_LISTS=( "GPU-2e21eb45-f755-8aba-505e-39c416840ee9"
@@ -43,9 +44,16 @@ do
         if [ ${CUDA_VISIBLE_DEVICES_CPU[i]} == ${MYHOST_ARRY_GPU_LISTS[j]} ]
         then
             CUDA_VISIBLE_DEVICES_CPU[i]=${ARRY_GPU_CPUBIND_LISTS[j]}
+	          CUDA_VISIBLE_DEVICES_GPUID[i]=$j
             break
         fi
     done
 done
 
-export CUDA_VISIBLE_DEVICES_BINDCPU=`echo $(echo ${CUDA_VISIBLE_DEVICES_CPU[@]}) | tr ' ' ','`
+#export CUDA_VISIBLE_DEVICES_BINDCPU=`echo $(echo ${CUDA_VISIBLE_DEVICES_CPU[@]}) | tr ' ' ','`
+
+#echo ${CUDA_VISIBLE_DEVICES_GPUID[@]}
+
+CPU=${CUDA_VISIBLE_DEVICES_CPU[$OMPI_COMM_WORLD_LOCAL_RANK]}
+
+numactl -a -l --physcpubind="${CPU}" $@
