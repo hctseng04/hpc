@@ -11,7 +11,7 @@ KAWAS17_ARRY_GPU_LISTS=( "GPU-2e21eb45-f755-8aba-505e-39c416840ee9"
                          "GPU-d075e29e-0b5d-400b-fdd8-16c9a450547f"
                          "GPU-3c07068f-1176-1bb1-b96c-488d02825e41"
                          "GPU-46d12b2f-3f9b-363c-4b6c-b99ee4640e3c"
-                         "GPU-ca20f41b-4695-76df-d68f-a35264862b0c"
+                         "GPU-cba16ace-9461-7418-c8df-8b57b2045ca9"
                          "GPU-40893529-3837-da6d-5a31-ee7e260bd88d" )
 
 # kawas18
